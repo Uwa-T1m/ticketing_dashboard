@@ -10,9 +10,7 @@ const Sidebar = () => {
         <li>
           <Link to="/create-ticket">Create Ticket</Link>
         </li>
-        <li>
-          <Link to="/admin">Admin Dashboard</Link>
-        </li>
+     
          <li>
          <Link to="/login">Login</Link>
        </li>
