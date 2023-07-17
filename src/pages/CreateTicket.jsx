@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid'
-import Sidebar from '../components/Sidebar';
 import toastr from 'toastr'
 import 'toastr/build/toastr.min.css'
-import { useNavigate } from 'react-router-dom'
 import useCreateDate from '../hooks/useCreateDate'
+import { IoArrowBack } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const CreateTicket = ({tickets, setTickets}) => {
   const [title, setTitle] = useState('');
@@ -19,8 +19,6 @@ const CreateTicket = ({tickets, setTickets}) => {
     extendedTimeOut: 2000,
     progressBar: true
   };
-// eslint-disable-next-line
-  const navigate = useNavigate()
 
   const handleCreateTicket = (e) => {
     e.preventDefault();
@@ -31,18 +29,17 @@ const CreateTicket = ({tickets, setTickets}) => {
 
     // Update the tickets state by adding the new ticket
     setTickets([...tickets, newTicket]);
-    console.log(tickets);
     toastr.success('Ticket Created Successfully', 'Success');
-    // navigate('/')
   };
 
   return (
+
 <section>
-      <div style={{ display: 'flex' }}>
-        <Sidebar />
-      </div>
+<Link to="/" className="top-left xxl">
+        <IoArrowBack />
+      </Link>      
+<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',flexDirection: 'column', margin: 'auto' }}>
       <h1>Create a New Ticket</h1>
-<div>
       <form onSubmit={handleCreateTicket}>
         <div>
           <label htmlFor="title">Title:</label>
@@ -55,20 +52,22 @@ const CreateTicket = ({tickets, setTickets}) => {
           />
         </div>
         <div>
+
+        <label htmlFor="category">Category:</label>
+        <input
+            type="text"
+            id="category"
+            value={category}
+            onChange={e => { setCategory(e.target.value) }}
+            required
+          />
+        </div>
+        <div>
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
             value={description}
             onChange={e => { setDescription(e.target.value) }}
-            required
-          />
-        </div>
-        <div>
-        <input
-            type="text"
-            id="title"
-            value={category}
-            onChange={e => { setCategory(e.target.value) }}
             required
           />
         </div>
