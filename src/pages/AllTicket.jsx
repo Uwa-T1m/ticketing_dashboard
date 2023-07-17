@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaPencilAlt } from 'react-icons/fa';
 import Sidebar from '../components/Sidebar'
+import Button from 'react-bootstrap/Button'
 
 const AllTicket = ({ tickets, setTickets }) => {
   const headerStyles = {
@@ -33,7 +34,9 @@ const AllTicket = ({ tickets, setTickets }) => {
             <h4 style={{ textAlign: 'center' }}>Welcome, Admin</h4>
             <div className="actions">
 
+             <Button>
               <Link to='/create-ticket' className='btn btn-primary'>Add Ticket</Link>
+              </Button> 
             </div>
           </header>
           <div className="table-holder">
@@ -55,7 +58,6 @@ const AllTicket = ({ tickets, setTickets }) => {
                 </tr>
               </thead>
               <tbody>
-
                 {
                   tickets.map(ticket => (
                     <tr key={ticket.id}>
