@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams , Link} from 'react-router-dom';
+import { useParams , Link, useNavigate} from 'react-router-dom';
 import useCreateDate from '../hooks/useCreateDate';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { IoArrowBack } from 'react-icons/io5';
@@ -12,6 +12,7 @@ const EditTicket = ({ tickets, setTickets }) => {
   const [description, setDescription] = useState(ticket?.description || '');
   const [category, setCategory] = useState(ticket?.category || '');
   const date = useCreateDate();
+  const navigate = useNavigate()
 
   const handleForm = (e) => { 
     e.preventDefault();
@@ -27,12 +28,15 @@ const EditTicket = ({ tickets, setTickets }) => {
       });
 
       setTickets(newTickets);
+      navigate('/')
     }
   };
 
   const handleDelete = () => {
     const newTicket = tickets.filter(item => item.id !== id);
     setTickets(newTicket);
+    navigate('/')
+
   };
 
   return (

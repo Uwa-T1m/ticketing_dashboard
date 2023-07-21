@@ -4,13 +4,14 @@ import toastr from 'toastr'
 import 'toastr/build/toastr.min.css'
 import useCreateDate from '../hooks/useCreateDate'
 import { IoArrowBack } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateTicket = ({tickets, setTickets}) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory]= useState('');
   const date = useCreateDate()
+  const navigate = useNavigate()
 
   toastr.options = {
     closeButton: true,
@@ -30,6 +31,7 @@ const CreateTicket = ({tickets, setTickets}) => {
     // Update the tickets state by adding the new ticket
     setTickets([...tickets, newTicket]);
     toastr.success('Ticket Created Successfully', 'Success');
+    navigate('/')
   };
 
   return (

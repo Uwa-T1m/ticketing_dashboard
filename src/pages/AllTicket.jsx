@@ -31,11 +31,11 @@ const AllTicket = ({ tickets, setTickets }) => {
         </div>
         <div style={{ width: '100%' }}>
           <header style={headerStyles}>
-            <h4 style={{ textAlign: 'center' }}>Welcome, Admin</h4>
+            <h4 style={{ textAlign: 'center' ,height: '100%'}}>Welcome, Admin</h4>
             <div className="actions">
 
              <Button>
-              <Link to='/create-ticket' className='btn btn-primary'>Add Ticket</Link>
+              <Link to='/create-ticket' className='btn' style={{padding: '0'}}>Add Ticket</Link>
               </Button> 
             </div>
           </header>
