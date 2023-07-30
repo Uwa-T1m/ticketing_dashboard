@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import AllTicket from './pages/AllTicket';
 import CreateTicket from './pages/CreateTicket';
 import Login from './pages/Login';
-import 'bootstrap/dist/css/bootstrap.css'
 
 import './App.css';
 import EditTicket from './pages/EditTicket';

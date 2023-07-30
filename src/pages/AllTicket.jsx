@@ -1,27 +1,15 @@
 import { Link } from 'react-router-dom';
-import { FaPencilAlt } from 'react-icons/fa';
+import { FaPencilAlt, FaPlus } from 'react-icons/fa';
 import Sidebar from '../components/Sidebar'
-import Button from 'react-bootstrap/Button'
 
 const AllTicket = ({ tickets, setTickets }) => {
   const headerStyles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '20px 10px',
+    padding: '10px',
     width: '100%'
   }
-
-
-  const handleMasterCheckboxChange = (isChecked) => {
-    const updatedTickets = tickets.map((ticket) => ({
-      ...ticket,
-      isChecked: isChecked,
-    }));
-    setTickets(updatedTickets);
-  };
-
-  const areAllTicketsChecked = tickets.every(ticket => ticket.isChecked)
 
   return (
     <>
@@ -31,22 +19,16 @@ const AllTicket = ({ tickets, setTickets }) => {
         </div>
         <div style={{ width: '100%' }}>
           <header style={headerStyles}>
-            <h4 style={{ textAlign: 'center' ,height: '100%'}}>Welcome, Admin</h4>
-            <div className="actions">
+            <span className='font-bold'>Welcome, Admin</span>
 
-             <Button>
-              <Link to='/create-ticket' className='btn' style={{padding: '0'}}>Add Ticket</Link>
-              </Button> 
-            </div>
+              <Link to='/create-ticket' className='btn bg-sky-500'><span className='flex items-center justify-center gap-1'><FaPlus />Add Ticket</span></Link>
           </header>
-          <div className="table-holder">
-            <table>
+          <div className="table-holder w-full m-auto">
+            <table className='m-auto w-full' border='3'>
               <thead>
                 <tr>
                   <th> <input
                     type="checkbox"
-                    checked={areAllTicketsChecked}
-                    onChange={(e) => handleMasterCheckboxChange(e.target.checked)}
                   /></th>
                   <th>USER</th>
                   <th>TITLE</th>

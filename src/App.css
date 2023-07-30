@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   margin: 0;
   padding: 0;
@@ -11,6 +15,7 @@ section{
 }
 
 
+
 .form{
   flex: 4;
 }
@@ -22,6 +27,14 @@ form{
   flex-direction: column;
 }
 
+.table-holder{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 table{
   width: 100%;
   margin: auto;
@@ -29,15 +42,16 @@ table{
 }
 
 tr{
-  margin-top: 20px;
   display: flex;
   gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 tr th, tr td{
   text-align: center;
   text-overflow: ellipsis;
-
 }
 
 
